@@ -4,6 +4,7 @@ import openpyxl as xl
 from openpyxl.styles import PatternFill
 import pprint as pp
 filename = "TR1.csv"
+num_students_per_lab = 2
 resultsFile = filename[:-4] + "-Results.xlsx"
 assignedColor = PatternFill(patternType="solid", start_color="81ef83")
 costs = np.loadtxt(filename, dtype=int, delimiter=',')
@@ -21,7 +22,6 @@ costs[costs==10] = 0
 #     for row in values:
 #         costs.append(row)
 
-num_students_per_lab = 2
 pp.pp(costs)
 print(type(costs[0][0]))
 model = cp_model.CpModel()
